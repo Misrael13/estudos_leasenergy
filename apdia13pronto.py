@@ -11,6 +11,7 @@ browser = webdriver.Chrome()
 wait = WebDriverWait(browser, 30)
 
 def scraping(url, pesq):
+    
     browser.get(url)
     url = BeautifulSoup(browser.page_source, 'html.parser')
     searchbtn = browser.find_element(By.ID, 'header-search-section').click()
@@ -20,11 +21,12 @@ def scraping(url, pesq):
     sleep(3.0)
     inp2 = browser.find_element(By.ID, 'header-search-input')
     inp2.send_keys(Keys.RETURN)
-    text1 = browser.find_element(By.TAG_NAME, 'p')
-    text2 = browser.find_element(By.CLASS_NAME, 'widget--info__description')
-    print(text2.text)
-    return text2 
+    text1 = browser.find_element(By.TAG_NAME, 'div')
+    text2 = browser.find_element(By.CLASS_NAME, 'widget--navigational__page')
+    return text2.text
 
 
-
-valor = scraping('https://www.globo.com/', 'agricultura')
+valor = scraping('https://www.globo.com/', 'berserk')
+valor2 = scraping('https://www.globo.com/', 'alemanha')
+print('\033[32m', valor, '\033[m')
+print('\033[32m', valor2, '\033[m')
