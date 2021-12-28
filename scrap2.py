@@ -14,8 +14,8 @@ def scraping(url, el_src, el_type = By.ID):
     tag_enc2 = browser.find_element(el_type, el_src)
     return tag_enc2.text
 
-
-valor1 = scraping('https://controlemais.com.br/monitoramento/medidor/1128', 'consumo-kwh', 'By.ID')
-valor2 = scraping('https://www.globo.com/', 'homeui-tc-cartolafc', 'By.CLASS_NAME')
+valor1 = scraping('https://controlemais.com.br/monitoramento/medidor/1128', 'consumo-kwh')
+sleep(1.5)
+valor2 = scraping('https://www.globo.com/', 'homeui-tc-podcasts', By.CLASS_NAME)
 print('\033[33m' 'o valor em kwh é', valor1, '\033[m')
-print(valor2)
+print('\033[32m', valor2, '\033[m' )
